@@ -13,9 +13,6 @@ Créer un nouveau tableau criticalAlerts. Un capteur doit y être ajouté si :So
 Affichez le tableau final.
 Calculer la température moyenne de tous les capteurs de type "temperature" (uniquement ceux qui ne sont pas "faulty").
 Créer un script qui pour un type de capteur, change le statut de tous les capteurs de ce type de "inactive" ou "faulty" vers "active". 
-
-
-
 */
 const sensors = [
     { id: "TEMP_01", type: "temperature", value: 22.5, status: "active" },
@@ -24,4 +21,14 @@ const sensors = [
     { id: "TEMP_02", type: "temperature", value: 31.0, status: "active" },
     { id: "POLL_02", type: "pollution", value: 42, status: "active" },
     { id: "TEMP_03", type: "temperature", value: -5.0, status: "faulty" }
-]; 
+];; 
+
+const noFaultYTempareture = sensors.filter(
+    (sensor) => sensor.type == 'temperature' && sensor.status != 'faulty'
+);
+console.log(noFaultYTempareture);
+
+const avgNoFaultYTempareture = noFaultYTempareture.reduce(
+    (accumulateur, sensor) => accumulateur + sensor.value, 0
+) / noFaultYTempareture.length;
+console.log(avgNoFaultYTempareture);
