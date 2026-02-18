@@ -1,6 +1,9 @@
 div {
   color: red;  
 }
+p {
+  background-image: url('assets/test.jpg');
+}
 .ampoule {
   width: 150px;
   height: 150px;
